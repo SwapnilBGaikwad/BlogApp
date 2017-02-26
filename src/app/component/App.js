@@ -1,6 +1,7 @@
 import React     from 'react';
 import './App.css';
-import Button from './Button.js';
+import Button from './Button';
+import BookForm from './BookForm';
 
 class App extends React.Component {
 
@@ -11,6 +12,7 @@ class App extends React.Component {
                     <h2>Welcome to Blog</h2>
                 </div>
                 <Button/>
+                <BookForm/>
             </div>
         );
     }

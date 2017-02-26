@@ -1,5 +1,5 @@
 import React from 'react'
-import Request from './Request'
+import Request from '../utils/Request'
 
 class Button extends React.Component {
 
@@ -48,7 +48,7 @@ class Button extends React.Component {
 
     getData() {
         let url = "http://localhost:8080/";
-        let data = null;
+        let data = {id: 1};
         let callback = (data) => {
             this.setState({data: data , loading: false})
         };
