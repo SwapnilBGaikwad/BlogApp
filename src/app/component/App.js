@@ -1,5 +1,6 @@
 import React     from 'react';
 import './App.css';
+import Button from './Button.js';
 
 class App extends React.Component {
 
@@ -9,6 +10,7 @@ class App extends React.Component {
                 <div className="App-header">
                     <h2>Welcome to Blog</h2>
                 </div>
+                <Button/>
             </div>
         );
     }
