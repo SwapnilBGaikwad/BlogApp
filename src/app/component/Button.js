@@ -1,15 +1,15 @@
 import React from 'react'
 import Request from '../utils/Request'
+import Reflux from 'reflux'
+import BookStore from '../store/BookStore'
+import Actions from '../actions/BookActions'
 
-class Button extends React.Component {
+class Button extends Reflux.Component {
 
-    constructor() {
-        super();
-        this.state = {
-            clickCount: 0,
-            loading: false,
-            data: null
-        };
+    constructor(props)
+    {
+        super(props);
+        this.store = BookStore;
     }
 
     render() {
@@ -39,27 +39,7 @@ class Button extends React.Component {
 
     handleClick(event) {
         event.preventDefault();
-        let counter = this.state.clickCount;
-        counter++;
-        this.setState({clickCount: counter , loading: true});
-        this.getData();
-    }
-
-
-    getData() {
-        let url = "http://localhost:8080/";
-        let data = {id: 1};
-        let callback = (data) => {
-            this.setState({data: data , loading: false})
-        };
-        let success = (data) => {
-            setTimeout(function () {
-                callback(data);
-            } , 1000);
-        };
-
-        let request = new Request();
-        request.get(url , data , success , {});
+        Actions.statusUpdate(true);
     }
 }
 
